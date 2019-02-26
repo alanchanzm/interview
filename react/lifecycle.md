@@ -67,6 +67,10 @@
 
 - 此时调用数据接口
 - 可以 setState，并引起重 render。两次 render 可能会合并，避免内容闪烁。
+- 为什么是 componentDidMount 而不是 componentWillMount
+  - componentWillMount is being deprecated
+  - componentWillMount 调用 AJAX，AJAX 完毕时组件可能还没有挂载，没有 data，无法 setState。所有早于 componentDidMount 的 hook 都可能面临这个问题。
+  - 对于 Fiber 来说，早于 componentDidMount 的 hook 都属于 Reconciliation 阶段。这个阶段可能被打断，多次调用。所以 AJAX 也可能被多次调用，it's a bad idea。
 
 ## Updating
 
