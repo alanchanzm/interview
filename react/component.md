@@ -17,6 +17,7 @@ function Foo(props) {
 1. class 需要生成实例，props 在构造函数中被传入，引用 props 需要通过 `this.props.xxx`
 2. class 需要显式声明 render 函数
 3. class 拥有 local state
+4. class 可以调用 lifecycle hooks
 
 ```jsx
 class Foo extends React.Component {
