@@ -23,8 +23,8 @@ class Product {
  * @extends Product
  */
 class Food extends Product {
-  constructor() {
-    super('sandwich');
+  constructor(name) {
+    super(name);
   }
 
   use() {
@@ -42,8 +42,8 @@ class Food extends Product {
  * @extends Product
  */
 class Vehicle extends Product {
-  constructor() {
-    super('car');
+  constructor(name) {
+    super(name);
   }
 
   use() {
@@ -63,9 +63,9 @@ class Vehicle extends Product {
 function factory(type) {
   switch (type) {
     case 'food':
-      return new Food();
+      return new Food('sandwish');
     case 'vehicle':
-      return new Vehicle();
+      return new Vehicle('car');
   }
 }
 
