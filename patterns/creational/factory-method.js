@@ -23,8 +23,15 @@ class Product {
  * @extends Product
  */
 class Food extends Product {
-  constructor(name) {
+  /**
+   * @param {string} name
+   * @param {number} shelfLife 保质期
+   * @param {Array.<string>} ingredients 配料
+   */
+  constructor(name, shelfLife, ingredients) {
     super(name);
+    this.shelfLife = shelfLife;
+    this.ingredients = ingredients;
   }
 
   use() {
@@ -70,11 +77,15 @@ function factory(type) {
 }
 
 // 食品工厂，包含创建食品的具体实现
+// you can add the product details here
 function createFood() {
-  return new Food('sandwish');
+  const name = 'sanwish';
+  const shelfLife = 30;
+  const ingredients = ['bread', 'egg'];
+  return new Food(name, shelfLife, ingredients);
 }
 
-// 交通工具工厂
+// 交通工具
 function createVehicle() {
   return new Vehicle('car');
 }
